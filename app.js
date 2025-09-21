@@ -118,5 +118,5 @@ app.use((err, req, res, next) => {
 
 const port = process.env.PORT || 3030;
 app.listen(port, () => {
-  console.log("Server started at 3030");
+  console.log(`🚀 Server started at ${port}`);
 });
