@@ -89,12 +89,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  console.log("Root route hit");
-  res.redirect("/listings");
-});
-
-
 //routes are accessed by these middlewares
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
