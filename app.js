@@ -99,6 +99,11 @@ app.get("/", (req, res) => {
   // res.render("home.ejs"); if you want a separate home page
 });
 
+app.get("/test", (req, res) => {
+  res.send("Test route is working!");
+});
+
+
 app.all("/*splat", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
 });

@@ -50,21 +50,4 @@ router.get(
   wrapAsync(listingController.renderEditForm)
 );
 
-//Orginal--------------------------[>]
-// app.put(
-//   "/listings/:id",
-//   validateListing,
-//   wrapAsync(async (req, res, next) => {
-//     let { id } = req.params;
-//     const listing = await Listing.findByIdAndUpdate(
-//       id,
-//       { ...req.body.listing },
-//       { new: true }
-//     );
-//     if (!listing) return next(new ExpressError(404, "Listing not found"));
-//     res.redirect(`/listings/${id}`);
-//     console.log(...req.body.listing);
-//   })
-// );
-
 module.exports = router;
