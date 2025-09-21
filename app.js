@@ -90,9 +90,10 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.redirect("/listings"); // or render a homepage
-  // res.render("home.ejs"); if you want a separate home page
+  console.log("Root route hit");
+  res.redirect("/listings");
 });
+
 
 //routes are accessed by these middlewares
 app.use("/listings", listingRouter);
