@@ -89,20 +89,15 @@ app.use((req, res, next) => {
   next();
 });
 
-//routes are accessed by these middlewares
-app.use("/listings", listingRouter);
-app.use("/listings/:id/reviews", reviewRouter);
-app.use("/", userRouter);
-
 app.get("/", (req, res) => {
   res.redirect("/listings"); // or render a homepage
   // res.render("home.ejs"); if you want a separate home page
 });
 
-app.get("/test", (req, res) => {
-  res.send("Test route is working!");
-});
-
+//routes are accessed by these middlewares
+app.use("/listings", listingRouter);
+app.use("/listings/:id/reviews", reviewRouter);
+app.use("/", userRouter);
 
 app.all("/*splat", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
