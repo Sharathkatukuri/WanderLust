@@ -10,8 +10,8 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
-
 const LocalStrategy = require("passport-local");
+
 const User = require("./models/user.js");
 const ExpressError = require("./utils/ExpressError.js");
 
@@ -26,9 +26,7 @@ main()
   .then(() => {
     console.log("connected to DB");
   })
-  .catch((err) => {
-    console.log(err);
-  });
+  .catch((err) => console.error("❌ DB connection error:", err));
 
 async function main() {
   await mongoose.connect(dbUrl);
@@ -53,8 +51,8 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600,
 });
 
-store.on("error", () => {
-  console.log("This is the error", err);
+store.on("error", (err) => {
+  console.error("❌ SESSION STORE ERROR:", err);
 });
 
 //details of sessions and cookies
@@ -100,13 +98,6 @@ app.all("/*splat", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
 });
 
-// Error handling middleware
-// app.use((err, req, res, next) => {
-//   let { statusCode = 500, message = "Something went wrong!" } = err;
-//   res.status(statusCode).render("error.ejs", { message });
-//   // res.status(statusCode).send( message ).toString();
-// });
-
 //centralized error handler
 app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Something went wrong!" } = err;
@@ -116,10 +107,11 @@ app.use((err, req, res, next) => {
     return res.render("404.ejs", { message });
   }
   console.log(statusCode);
+  console.error("❌ ERROR:", err);
   res.render("error.ejs", { message, err });
 });
 
 const port = process.env.PORT || 3030;
-app.listen(port, (req, res) => {
+app.listen(port, () => {
   console.log("Server started at 3030");
 });
