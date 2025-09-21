@@ -18,10 +18,8 @@ const ExpressError = require("./utils/ExpressError.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
-// const { throwDeprecation } = require("process");
 
 const app = express();
-// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl = process.env.ATLAS_DB_URL;
 
 main()
@@ -55,7 +53,7 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600,
 });
 
-store.on("ERROR", () => {
+store.on("error", () => {
   console.log("This is the error", err);
 });
 
@@ -71,11 +69,6 @@ const sessionOptions = {
     HttpOnly: true,
   },
 };
-
-//Home {or} Main route
-// app.get("/", (req, res) => {
-//   res.send("Route is working");
-// });
 
 //To generate session id
 app.use(session(sessionOptions));
@@ -103,16 +96,6 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
-// app.get("/userdemo" , async(req,res) =>{
-//   let fakeuser = new User({
-//     email : "delta@gmail.com",
-//     username : "delta-student101",
-//   });
-
-//   let registeredUser = await User.register(fakeuser , "helloworld");
-//   res.send(registeredUser);
-// })
-
 app.all("/*splat", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
 });
@@ -133,10 +116,10 @@ app.use((err, req, res, next) => {
     return res.render("404.ejs", { message });
   }
   console.log(statusCode);
-  // fallback to the generic error template for 500, validation errors, etc.
   res.render("error.ejs", { message, err });
 });
 
-app.listen(3030, (req, res) => {
+const port = process.env.PORT || 3030;
+app.listen(port, (req, res) => {
   console.log("Server started at 3030");
 });
