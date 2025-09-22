@@ -15,6 +15,7 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const ExpressError = require("./utils/ExpressError.js");
 
+const Listing = require("./models/listing.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
@@ -88,6 +89,13 @@ app.use((req, res, next) => {
   res.locals.currUser = req.user;
   next();
 });
+
+
+app.get("/", async(req, res) => {
+    const allListings = await Listing.find({}).lean();
+    res.render("./listings/index.ejs", { allListings }); // This renders 'views/listings/index.ejs'
+});
+
 
 //routes are accessed by these middlewares
 app.use("/listings", listingRouter);
