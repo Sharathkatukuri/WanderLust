@@ -90,12 +90,9 @@ app.use((req, res, next) => {
   next();
 });
 
-
-app.get("/", async(req, res) => {
-    const allListings = await Listing.find({}).lean();
-    res.render("./listings/index.ejs", { allListings }); // This renders 'views/listings/index.ejs'
+app.get("/",(req, res) => {
+  res.render("home.ejs");
 });
-
 
 //routes are accessed by these middlewares
 app.use("/listings", listingRouter);

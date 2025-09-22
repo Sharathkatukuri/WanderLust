@@ -36,7 +36,6 @@ body {
 
 .f-info-socials i {
   font-size: 1.35rem;
-  /* margin-right: 1rem; */
   display: flex; /* or display: grid; */
   gap: 15px;
 }

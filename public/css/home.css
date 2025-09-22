@@ -1,0 +1,43 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Essential for pseudo-element positioning */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://i.pinimg.com/736x/b1/dd/d8/b1ddd8382a67fe597aa06b2eb3134fdc.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px); /* Apply the blur here */
+  z-index: -1; /* Pushes the blurred background behind the content */
+}
+
+.fa-compass {
+  font-size: 2.5rem;
+  color: #fe424d;
+}
+
+.homePage-content {
+  text-align: center;
+  color: #fff;
+}
+
+.homePage-btn:hover {
+  background-color: #fe424d;
+  color: #fe424d;
+}
+.homePage-content a {
+  text-decoration: none;
+  color: #fff;
+}

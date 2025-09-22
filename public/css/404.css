@@ -1,30 +1,3 @@
-/* body {
-  font-family: "Plus Jakarta Sans", sans-serif !important;
-  background-color: #fff;
-  overflow-x: hidden;
-}
-
-.page-container-responsive{
-    width: auto;
-} */
-
-/* 
-.page-container{
-    width: 1080px;
-}
-.page-container, .page-container-responsive{
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 12px;
-    padding-right: 12px;
-}
-div{
-    display: block;
-    unicode-bidi: isolate;
-}
- 
- */
-
 .space-top-4 {
   margin-top: 24px;
 }
@@ -64,24 +37,6 @@ body {
   font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* .page-404-img,
-img {
-  vertical-align: middle;
-} */
-
-/* .img-responsive {
-  width: 100%;
-  height: auto;
-} */
-
-/* .img-round,
-.media-round {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  border: 2px solid #fff;
-} */
-
 .img-responsive-height {
   width: auto;
   height: 100%;
@@ -92,11 +47,6 @@ img {
   font-weight: 700;
   margin-bottom: 23px;
 }
-
-/* .page-404 > h2{
-    margin-top: 230px;
-    margin-bottom: 230px;
-} */
 
 ul,
 ol {
@@ -112,19 +62,6 @@ ol {
   padding-left: 12px;
   padding-right: 12px;
 }
-
-/* .page-container:before,
-.page-container-responsive:before,
-.page-container:after,
-.page-container-responsive:after {
-  content: " ";
-  display: table;
-}
-
-.page-container:after,
-.page-container-responsive:after {
-  clear: both;
-} */
 
 @media (min-width: 744px) {
   .page-container,
@@ -163,16 +100,6 @@ ol {
 .page-container-full {
   width: auto;
 }
-
-/* .page-container-full:before,
-.page-container-full:after {
-  content: " ";
-  display: table;
-}
-
-.page-container-full:after {
-  clear: both;
-} */
 
 .text-ginormous {
   font-size: 145px;
