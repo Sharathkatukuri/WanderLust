@@ -2,6 +2,8 @@
 
 Wanderlust is a web application inspired by Airbnb that enables users to explore, book, and review various accommodations around the globe. Built using the MERN stack (excluding React), it focuses on providing an intuitive and functional user experience.
 
+- **My Project**: [WanderLust](https://wanderlust-w8xi.onrender.com).
+
 ## Features
 
 - **Browse Listings**: Explore a variety of accommodation options with detailed descriptions, images, and pricing.
